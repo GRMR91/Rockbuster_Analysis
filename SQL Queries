@@ -1,4 +1,4 @@
-- Creating a new table
+-- Creating a new table
 
 CREATE TABLE employees
 (
@@ -10,8 +10,9 @@ last_update TIMESTAMP NOT NULL DEFAULT now(),
 CONSTRAINT employee_pkey PRIMARY KEY (employee_id)
 );
 
-# Exploration
-- What is the average rental for each category?
+## EXPLORATION
+
+-- What is the average rental for each category?
 
 SELECT 
 AVG (rental_rate) AS "Average rental rate",
@@ -20,7 +21,7 @@ FROM film
 GROUP BY rating
 ORDER BY rating;
 
-- What are the minimum and maximum rental duration for each rating category?
+-- What are the minimum and maximum rental duration for each rating category?
 
 SELECT 
 MIN (rental_duration) AS "Minimum rental duration",
@@ -30,7 +31,7 @@ FROM film
 GROUP BY rating
 ORDER BY rating;
 
-- Assess rental duration stats by rating type
+-- Assess rental duration stats by rating type
 
 SELECT rating,
 COUNT (film_id) AS "Count of movies",
@@ -41,9 +42,9 @@ FROM film
 GROUP BY rating;
 
 
-# Summary Stats
+## SUMMARY STATS
 
- - Review the descriptive statistics of the numeric column in the film table
+ -- Review the descriptive statistics of the numeric column in the film table
 
 SELECT 
 MIN(rental_rate) AS min_renatl_rate,
@@ -60,7 +61,7 @@ MAX(length) AS max_length,
 AVG(length) AS avg_length
 FROM film;
 
- - Review the descriptive statistics of the numeric column in the customer table
+ -- Review the descriptive statistics of the numeric column in the customer table
 
 SELECT 
 MIN(active) AS min_active,
@@ -77,7 +78,7 @@ MAX(store_id) AS max_store,
 AVG(store_id) AS avg_store
 FROM customer;
 
- - Mode value for non-numerical columns for film table
+ -- Mode value for non-numerical columns for film table
 
 SELECT
 mode() WITHIN GROUP (ORDER BY rating)
@@ -91,7 +92,7 @@ AS title_value,
 COUNT(*) AS count_rows
 FROM film;
 
--Mode value for non-numerical columns for customer table
+-- Mode value for non-numerical columns for customer table
 
 SELECT
  mode() WITHIN GROUP (ORDER BY first_name)
@@ -104,9 +105,9 @@ COUNT(*)
 FROM customer;
 
 
-# Finding duplicates
+## FINDING DUPLICATES
 
-- Searching for duplicate values in the film table
+-- Searching for duplicate values in the film table
 
 SELECT title,
        release_year,
@@ -120,7 +121,7 @@ GROUP BY title,
          rental_duration
 HAVING COUNT(*) >1;
 
-- Searching for duplicate values in the customer table
+-- Searching for duplicate values in the customer table
 
 SELECT first_name,
 	   last_name,
@@ -134,9 +135,9 @@ GROUP BY first_name,
 	   address_id
 HAVING COUNT(*) >1;
 
-# Analysis
+## ANALYSIS
 
- - Find the top 10 countries for Rockbuster regarding customer numbers 
+ -- Find the top 10 countries for Rockbuster regarding customer numbers 
 
 SELECT d.country,
 COUNT(A.customer_id) AS "customer_total"
@@ -148,7 +149,7 @@ GROUP BY country
 ORDER BY customer_total DESC
 LIMIT 10;
 
- - Find the top 10 cities in the countries outlined in the above query
+ -- Find the top 10 cities in the countries outlined in the above query
 
 SELECT C.city,
 COUNT(A.customer_id) AS "customer_total"
@@ -171,7 +172,7 @@ GROUP BY city
 ORDER BY customer_total DESC
 LIMIT 10;
 
- - Find the top 5 customers in the top ten cities who have paid the highest total amounts to Rockbuster 
+ -- Find the top 5 customers in the top ten cities who have paid the highest total amounts to Rockbuster 
 
 SELECT A.customer_id,
 A.first_name,
@@ -189,7 +190,7 @@ GROUP BY A.customer_id, C.city, D.country
 ORDER BY total_amount DESC
 LIMIT 5;
 
- - Find the average amount paid by the top customers in the cities outlined above
+ -- Find the average amount paid by the top customers in the cities outlined above
 
 SELECT AVG(total_amount_paid.total_amount_paid) AS "Average"
 FROM
@@ -211,7 +212,7 @@ FROM
 	LIMIT 5) 
 	AS total_amount_paid;
 
-Use a CTE to find out how many of the top 5 customers are based within each country?
+-- Use a CTE to find out how many of the top 5 customers are based within each country?
 
 
 WITH top_five_countries_CTE (first_name, last_name, country, total_amount_paid) AS 
