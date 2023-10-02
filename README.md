@@ -1,8 +1,8 @@
 # Rockbuster_Analysis
-A SQL based project that investigates online movie rental data for a fictitious company as part of the CareerFoundry Data Analysis course.
+A SQL-based analysis to inform and guide a fictitious movie rental company as it transitions to an online service.
 
 ## Objective
-Rockbuster Stealth LLC is a movie rental company that used to have stores around the world. Facing stiff competition from streaming services, Rockbuster is planning to use its existing movie licenses to an online video rental service in order to remain relevant in a competitive industry. The purpose of this analysis is provide insight on the current customer base and rental patterns to support a successful launch strategy.
+Rockbuster Stealth LLC is a movie rental company that used to have stores around the world. Facing stiff competition from streaming services, Rockbuster is planning to change its business structure to an online rental service in order to remain relevant in a shifting industry. The purpose of this analysis is to provide insight into the current customer base and rental patterns to provide guidance and ensure a  successful online launch strategy.
 
 ## Tools
 Postgre SQL was used via the pgAdmin 4 app.
@@ -26,5 +26,5 @@ The following tables were included in the dataset.
  - Category
  - Language
 
-## Additional Resourses
+## Additional Resources
 A data dictionary along with a final slide show has been supplied for additional context. 
