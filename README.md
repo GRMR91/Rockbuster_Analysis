@@ -8,7 +8,6 @@ Rockbuster Stealth LLC is a movie rental company that used to have stores around
 Postgre SQL was used via the pgAdmin 4 app.
 
 ## Data
-All data was supplied by CareerFoundry as part of an assignment for its Data Analysis course
 The following tables were included in the dataset. 
  - Customer
  - Store
