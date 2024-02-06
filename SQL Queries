@@ -1,3 +1,10 @@
+TABLE OF CONTENTS
+
+LINE 8-144 --- > Exploration / Summary Statistics
+LINE 145-259 --- > Analysis
+
+
+
 -- Creating a new table
 
 CREATE TABLE employees
